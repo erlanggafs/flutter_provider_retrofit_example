@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_provider/presentation/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'data/repositories/product_repositoriy.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
             create: (context) => ProductProvider(repository)..fetchProducts()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: MaterialApp(
         title: 'Product App',
